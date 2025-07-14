@@ -7,16 +7,13 @@ import './index.css';          // tailwind imports
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        {/* initial route menampilkan App (loading lalu redirect) */}
-        <Route path="/" element={<App />} />
-        {/* tujuan akhir */}
-        <Route path="/home" element={<Home />} />
+    <BrowserRouter basename="/Fourteendecy">
+<Routes>
+  <Route index element={<App />} />          {/* loader */}
+  <Route path="home" element={<Home />} />   {/* konten */}
+  <Route path="*" element={<Navigate to="home" replace />} />
+</Routes>
 
-        {/* fallback: apa pun selain rute di atas -> home */}
-        <Route path="*" element={<Navigate to="/home" replace />} />
-      </Routes>
     </BrowserRouter>
   </React.StrictMode>,
 );
