@@ -17,7 +17,6 @@ export default function Footer() {
                 'NEW ARRIVAL',
                 'MOST PICK',
                 'SALE',
-                'WOMEN',
                 'MEN',
               ].map((item) => (
                 <li key={item}>
