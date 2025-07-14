@@ -1,15 +1,17 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import LoadingFashion from './components/LoadingFashion';
+import SplashScreen from './components/SplashScreen';
 
 export default function App() {
   const navigate = useNavigate();
 
-useEffect(() => {
-  const t = setTimeout(() => navigate('home', { replace: true }), 3000);
-  return () => clearTimeout(t);
-}, [navigate]);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      navigate('/home', { replace: true });
+    }, 2500); // sama dengan default duration SplashScreen
+    return () => clearTimeout(timer);
+  }, [navigate]);
 
-  // hanya render layar loading
-  return <LoadingFashion />;
+  // render splash lebih dulu
+  return <SplashScreen onFinish={() => navigate('/home', { replace: true })} />;
 }
